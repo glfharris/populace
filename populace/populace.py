@@ -31,7 +31,5 @@ def generate(fraction, length=10, base=TABLEAU["light red"], highlight=TABLEAU["
         group.add(tmp)
     
     figure.add(group)
-    figure.save()
+    return figure
 
-if __name__ == "__main__":
-    generate((0.01), length=10, base=TABLEAU["olive"])
