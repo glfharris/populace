@@ -1,10 +1,10 @@
 import svgwrite as svg
 
-import symbols
-from colours import TABLEAU
+from populace.symbols import HOLLOW_MAN
+from populace.colours import TABLEAU
 
 def generate(fraction, length=10, base=TABLEAU["light red"], highlight=TABLEAU["red"],
-             filename="noname.svg", symbol=symbols.HOLLOW_MAN):
+             filename="noname.svg", symbol=HOLLOW_MAN):
     width = 489.3 # hard coded for now
     height = 489.3
 
