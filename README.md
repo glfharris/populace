@@ -2,7 +2,7 @@
 
 A small little package for generating quick and easy visualizations of population statistics, such as:
 
-![](examples/basic.svg)
+<img src="examples/basic.svg" width="100%" height="144">
 
 As it's in a very early state almost all functionality is the `generate` function, and I've tried to include sane defaults.
 
@@ -22,5 +22,7 @@ So putting it all together the most complicated variant it's currently capable o
 ```
 generate((1/3), length=8, base=TABLEAU['blue'], highlight=TABLEAU['light orange'], filename='fancy.svg').save()
 ```
-![](examples/fancy.svg)
+
+<img src="examples/fancy.svg" width="100%" height="144">
+
 I told you it was still early days!
