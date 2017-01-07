@@ -1,12 +1,12 @@
 import svgwrite as svg
 
-from populace.symbols import HOLLOW_MAN
-from populace.colours import TABLEAU
+from .symbols import HOLLOW_MAN
+from .colours import TABLEAU
 
 def generate(fraction, length=10, base=TABLEAU["light red"], highlight=TABLEAU["red"],
-             filename="noname.svg", symbol=HOLLOW_MAN):
-    width = 489.3 # hard coded for now
-    height = 489.3
+             filename="noname.svg", symbol=HOLLOW_MAN, orient='v'):
+    width = 33#489.3 # hard coded for now
+    height = 33#489.3
 
     figure = svg.Drawing(filename=filename, fill=base)
     figure.viewbox(width=((length + 1) * 0.5 * width), height=height)
@@ -15,7 +15,10 @@ def generate(fraction, length=10, base=TABLEAU["light red"], highlight=TABLEAU["
 
     #gradient
     offset = 1 - ((length * fraction) % 1)
-    lin_grad = svg.gradients.LinearGradient(start=(0, 0), end=(0, 1), id="lin_grad")
+    if orient == 'h':
+        lin_grad = svg.gradients.LinearGradient(start=(1, 0), end=(0, 0), id="lin_grad")
+    else:
+        lin_grad = svg.gradients.LinearGradient(start=(0, 0), end=(0, 1), id="lin_grad")
     lin_grad.add_stop_color(offset=offset, color=base, opacity=255)
     lin_grad.add_stop_color(offset=offset, color=highlight, opacity=255)
     definitions.add(lin_grad)
@@ -33,3 +36,5 @@ def generate(fraction, length=10, base=TABLEAU["light red"], highlight=TABLEAU["
     figure.add(group)
     return figure
 
+if __name__ == "__main__":
+    generate(0.5).save()
