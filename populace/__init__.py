@@ -1,1 +1,3 @@
-__ALL__ = ['core']
+__all__ = ['core', 'symbols', 'colours']
+
+from populace.core import generate
